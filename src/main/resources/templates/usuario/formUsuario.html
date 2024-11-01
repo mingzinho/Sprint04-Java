@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulário de Usuário</title>
+</head>
+<body>
+
+<h1 th:text="${usuario.id == null} ? 'Novo Usuário' : 'Editar Usuário'">Usuário</h1>
+
+<form th:action="${usuario.id == null} ? @{/usuario/salvar} : @{/usuario/atualizar/{id}(id=${usuario.id})}" method="post">
+    <label for="nomeEmpresa">Nome da Empresa:</label>
+    <input type="text" id="nomeEmpresa" name="nomeEmpresa" th:value="${usuario.nomeEmpresa}" required/>
+    <br/>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" th:value="${usuario.email}" required/>
+    <br/>
+
+    <label for="senha">Senha:</label>
+    <input type="password" id="senha" name="senha" th:value="${usuario.senha}" required/>
+    <br/>
+
+    <label for="cnpj">CNPJ:</label>
+    <input type="text" id="cnpj" name="cnpj" th:value="${usuario.cnpj}" required minlength="11" maxlength="11"/>
+    <br/>
+
+    <button type="submit" th:text="${usuario.id == null} ? 'Salvar' : 'Atualizar'"></button>
+</form>
+
+</body>
+</html>

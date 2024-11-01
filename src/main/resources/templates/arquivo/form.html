@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulário de Arquivo</title>
+</head>
+<body>
+
+<h1 th:text="${arquivo.id == null} ? 'Novo Arquivo' : 'Editar Arquivo'">Arquivo</h1>
+
+<form th:action="${arquivo.id == null} ? @{/arquivo/salvar} : @{/arquivo/atualizar/{id}(id=${arquivo.id})}" method="post">
+    <label for="nomeArquivo">Nome Arquivo:</label>
+    <input type="text" id="nomeArquivo" name="nomeArquivo" th:value="${arquivo.nomeArquivo}" required/>
+    <br/>
+
+    <label for="tipo">Tipo:</label>
+    <input type="text" id="tipo" name="tipo" th:value="${arquivo.tipo}" required/>
+    <br/>
+
+    <!-- Selecionar o usuário -->
+    <label for="usuario">Usuário:</label>
+    <select id="usuario" name="usuario.id" required>
+        <option value="" disabled selected>Selecione um usuário</option>
+        <option th:each="usuario : ${usuarios}" th:value="${usuario.id}" th:text="${usuario.nomeEmpresa}"></option>
+    </select>
+    <br/>
+
+    <button type="submit" th:text="${arquivo.id == null} ? 'Salvar' : 'Atualizar'"></button>
+</form>
+
+</body>
+</html>

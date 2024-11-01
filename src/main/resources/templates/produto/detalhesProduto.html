@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pt-BR"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalhes do Produto</title>
+</head>
+<body>
+<h1>Detalhes do Produto</h1>
+<p><strong>ID:</strong> <span th:text="${produto.id}"></span></p>
+<p><strong>Nome:</strong> <span th:text="${produto.nomeProd}"></span></p>
+<p><strong>Descrição:</strong> <span th:text="${produto.descricao}"></span></p>
+<p><strong>Preço:</strong> <span th:text="${produto.preco}"></span></p>
+<p><strong>Categoria:</strong> <span th:text="${produto.categoria}"></span></p>
+<a th:href="@{/produto/editar/{id}(id=${produto.id})}">Editar</a>
+</body>
+</html>

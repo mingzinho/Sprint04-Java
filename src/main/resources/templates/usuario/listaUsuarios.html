@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Usuários</title>
+</head>
+<body>
+<h1>Lista de Usuários</h1>
+<a th:href="@{/usuario/novo}">Adicionar novo usuário</a>
+<br/><br/>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nome da Empresa</th>
+        <th>Email</th>
+        <th>CNPJ</th>
+        <th>Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="usuario : ${listaUsuarios}">
+        <td th:text="${usuario.id}">ID</td>
+        <td th:text="${usuario.nomeEmpresa}">Nome da Empresa</td>
+        <td th:text="${usuario.email}">Email</td>
+        <td th:text="${usuario.cnpj}">CNPJ</td>
+        <td>
+            <a th:href="@{/usuario/detalhes/{id}(id=${usuario.id})}">Detalhes</a> |
+            <a th:href="@{/usuario/editar/{id}(id=${usuario.id})}">Editar</a> |
+            <a th:href="@{/usuario/deletar/{id}(id=${usuario.id})}" onclick="return confirm('Tem certeza que deseja deletar este usuário?')">Deletar</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

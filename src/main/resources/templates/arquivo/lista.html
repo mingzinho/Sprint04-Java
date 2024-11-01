@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Arquivos</title>
+</head>
+<body>
+<h1>Lista de Arquivos</h1>
+<a th:href="@{/arquivo/novo}">Adicionar novo arquivo</a>
+<br/><br/>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nome Arquivo</th>
+        <th>Tipo</th>
+        <th>Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="arquivo : ${listaArquivos}">
+        <td th:text="${arquivo.id}">ID</td>
+        <td th:text="${arquivo.nomeArquivo}">Nome Arquivo</td>
+        <td th:text="${arquivo.tipo}">Tipo</td>
+        <td>
+            <a th:href="@{/arquivo/detalhes/{id}(id=${arquivo.id})}">Detalhes</a> |
+            <a th:href="@{/arquivo/editar/{id}(id=${arquivo.id})}">Editar</a> |
+            <a th:href="@{/arquivo/deletar/{id}(id=${arquivo.id})}" onclick="return confirm('Tem certeza que deseja deletar este arquivo?')">Deletar</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Produtos</title>
+</head>
+<body>
+
+<h1>Lista de Produtos</h1>
+<a th:href="@{/produto/novo}">Adicionar novo produto</a>
+<br/><br/>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Descrição</th>
+        <th>Preço</th>
+        <th>Categoria</th>
+        <th>Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="produto : ${listaProdutos}">
+        <td th:text="${produto.id}">ID</td>
+        <td th:text="${produto.nomeProd}">Nome</td>
+        <td th:text="${produto.descricao}">Descrição</td>
+        <td th:text="${produto.preco}">Preço</td>
+        <td th:text="${produto.categoria}">Categoria</td>
+        <td>
+            <a th:href="@{/produto/detalhes/{id}(id=${produto.id})}">Detalhes</a> |
+            <a th:href="@{/produto/editar/{id}(id=${produto.id})}">Editar</a> |
+            <a th:href="@{/produto/deletar/{id}(id=${produto.id})}" onclick="return confirm('Tem certeza que deseja deletar este produto?')">Deletar</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
