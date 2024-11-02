@@ -2,17 +2,14 @@ package br.com.fiap.sprint3_EcoPredict;
 
 
 import br.com.fiap.sprint3_EcoPredict.model.Usuario;
-import br.com.fiap.sprint3_EcoPredict.model.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-@ExtendWith(MockitoExtension.class)
+@SpringBootTest
 public class UsuarioTest {
 
     private Usuario usuario;

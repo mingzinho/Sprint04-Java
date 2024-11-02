@@ -1,6 +1,5 @@
 package br.com.fiap.sprint3_EcoPredict;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.junit.jupiter.MockitoExtension;
+
 import br.com.fiap.sprint3_EcoPredict.model.Arquivo;
 import br.com.fiap.sprint3_EcoPredict.model.Usuario;
 import org.junit.jupiter.api.BeforeEach;
@@ -12,7 +11,7 @@ import java.time.LocalDateTime;
 import static org.hibernate.validator.internal.util.Contracts.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@ExtendWith(MockitoExtension.class)
+@SpringBootTest
 public class ArquivoTest {
 
     private Arquivo arquivo;
